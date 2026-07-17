@@ -22,22 +22,6 @@
         .page { max-width: 760px; margin: 0 auto; }
         .page-break { page-break-before: always; break-before: page; }
 
-        /* Print bar */
-        .print-bar {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
-            background: #1a1a2e; color: #ccc; padding: 10px 24px;
-            display: flex; justify-content: center; align-items: center; gap: 16px;
-            font-size: 9.5pt;
-        }
-        .print-bar b { color: #fff; }
-        .print-bar button {
-            background: #fff; color: #1a1a2e; border: none;
-            padding: 7px 22px; border-radius: 4px;
-            font-family: inherit; font-weight: 700; font-size: 9.5pt; cursor: pointer;
-        }
-        @media print { .print-bar { display: none !important; } body { padding-top: 0 !important; } }
-        @media screen { body { padding-top: 46px; } }
-
         /* ====== PORTADA ====== */
         .cover {
             padding: 44px 0 18px;
@@ -108,11 +92,6 @@
 </head>
 <body>
 
-<div class="print-bar">
-    <span>Para guardar como PDF: <b>Ctrl + P</b> → Destino: <b>Guardar como PDF</b> → Activar <b>gráficos en segundo plano</b></span>
-    <button onclick="window.print()">Guardar como PDF</button>
-</div>
-
 <div class="page">
 
     <!-- ====== PORTADA ====== -->
@@ -161,7 +140,7 @@
         <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML / CSS</span><span class="tag">Firebase</span><span class="tag">Firestore</span></div>
 
         <div class="ig c1">
-            <div class="iw"><img src="assets/Captura de pantalla 2026-07-16 164306.png" alt="Dashboard"><div class="ic">Panel de producción con órdenes activas y carga de trabajo por operario</div></div>
+            <div class="iw"><img src="dashboard-produccion.png" alt="Dashboard"><div class="ic">Panel de producción con órdenes activas y carga de trabajo por operario</div></div>
         </div>
     </div>
 
@@ -188,9 +167,9 @@
         <div class="tags"><span class="tag">Tableros Eléctricos</span><span class="tag">Autonics ATE8</span><span class="tag">Control PID</span><span class="tag">Variador VCP</span><span class="tag">SolidWorks</span></div>
 
         <div class="ig c3">
-            <div class="iw"><img src="assets/WhatsApp Image 2026-07-16 at 4.37.45 PM.jpeg" alt="Horno"><div class="ic">Horno terminado con panel frontal</div></div>
-            <div class="iw"><img src="assets/WhatsApp Image 2026-07-16 at 4.36.43 PM.jpeg" alt="Tablero"><div class="ic">Tablero eléctrico armado por mí</div></div>
-            <div class="iw"><img src="assets/WhatsApp Image 2026-07-16 at 4.36.26 PM.jpeg" alt="CAD"><div class="ic">Modelo CAD del bastidor interno</div></div>
+            <div class="iw"><img src="horno-conveccion.jpeg" alt="Horno"><div class="ic">Horno terminado con panel frontal</div></div>
+            <div class="iw"><img src="tablero-electrico.jpeg" alt="Tablero"><div class="ic">Tablero eléctrico armado por mí</div></div>
+            <div class="iw"><img src="horno-cad.jpeg" alt="CAD"><div class="ic">Modelo CAD del bastidor interno</div></div>
         </div>
     </div>
 
@@ -243,8 +222,8 @@
         <div class="tags"><span class="tag">SolidWorks</span><span class="tag">Planos ISO/ANSI</span><span class="tag">BOM</span><span class="tag">Cadena ANSI 40</span><span class="tag">Industria Alimentaria</span></div>
 
         <div class="ig c2">
-            <div class="iw"><img src="assets/Captura de pantalla 2026-07-16 164033.png" alt="Plano Italiana"><div class="ic">Plano de ensamble de la laminadora con BOM</div></div>
-            <div class="iw"><img src="assets/WhatsApp Image 2026-07-16 at 4.32.54 PM.jpeg" alt="Cortador de masa"><div class="ic">Cortador de masa fácil automatizado</div></div>
+            <div class="iw"><img src="plano-laminadora.png" alt="Plano Italiana"><div class="ic">Plano de ensamble de la laminadora con BOM</div></div>
+            <div class="iw"><img src="cortador-masa.jpeg" alt="Cortador de masa"><div class="ic">Cortador de masa fácil automatizado</div></div>
         </div>
     </div>
 
