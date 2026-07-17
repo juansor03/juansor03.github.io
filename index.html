@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio — Juan Camilo Soracá Rivas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 10.5pt; }
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: #222;
+            background: #fff;
+            line-height: 1.55;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        @page { size: letter; margin: 16mm 20mm; }
+        .page { max-width: 760px; margin: 0 auto; }
+        .page-break { page-break-before: always; break-before: page; }
+
+        /* Print bar */
+        .print-bar {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+            background: #1a1a2e; color: #ccc; padding: 10px 24px;
+            display: flex; justify-content: center; align-items: center; gap: 16px;
+            font-size: 9.5pt;
+        }
+        .print-bar b { color: #fff; }
+        .print-bar button {
+            background: #fff; color: #1a1a2e; border: none;
+            padding: 7px 22px; border-radius: 4px;
+            font-family: inherit; font-weight: 700; font-size: 9.5pt; cursor: pointer;
+        }
+        @media print { .print-bar { display: none !important; } body { padding-top: 0 !important; } }
+        @media screen { body { padding-top: 46px; } }
+
+        /* ====== PORTADA ====== */
+        .cover {
+            padding: 44px 0 18px;
+            border-bottom: 2.5px solid #0f4c81;
+            margin-bottom: 24px;
+        }
+        .cover-row { display: flex; justify-content: space-between; align-items: flex-end; }
+        .cover h1 {
+            font-size: 26pt; font-weight: 800; color: #0f4c81;
+            line-height: 1.05; letter-spacing: -.02em;
+        }
+        .cover-sub {
+            font-size: 11pt; font-weight: 400; color: #555; margin-top: 5px;
+        }
+        .cover-contact {
+            text-align: right; font-size: 8.5pt; color: #555; line-height: 1.85;
+        }
+        .cover-contact a { color: #0f4c81; text-decoration: none; }
+
+        /* ====== INTRO ====== */
+        .intro {
+            font-size: 10pt; color: #333; margin-bottom: 26px;
+            border-left: 3px solid #0f4c81;
+            padding-left: 16px;
+        }
+
+        /* ====== SECTION ====== */
+        .st {
+            font-size: 9pt; font-weight: 700; color: #0f4c81;
+            text-transform: uppercase; letter-spacing: .12em;
+            margin-bottom: 16px; margin-top: 4px;
+        }
+
+        /* ====== PROJECT ====== */
+        .pj { margin-bottom: 26px; page-break-inside: avoid; break-inside: avoid; }
+        .pj-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; border-bottom: 1px solid #e4e4e4; padding-bottom: 5px; }
+        .pj-name { font-size: 13pt; font-weight: 700; color: #1a1a2e; }
+        .pj-label { font-size: 7.5pt; font-weight: 700; color: #0f4c81; text-transform: uppercase; letter-spacing: .05em; border: 1.5px solid #0f4c81; padding: 2px 8px; border-radius: 3px; }
+
+        .pj-context { font-size: 9.5pt; color: #555; font-style: italic; margin-bottom: 6px; }
+
+        .pj p { font-size: 9.5pt; color: #333; margin-bottom: 6px; }
+
+        .pj-what { font-size: 8.5pt; font-weight: 700; color: #0f4c81; text-transform: uppercase; letter-spacing: .06em; margin: 10px 0 4px; }
+
+        .pj ul { list-style: none; margin-bottom: 8px; }
+        .pj ul li { font-size: 9pt; color: #444; padding-left: 14px; position: relative; margin-bottom: 2px; }
+        .pj ul li::before { content: "—"; position: absolute; left: 0; color: #aaa; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+        .tag { font-size: 7pt; font-weight: 600; color: #666; background: #f2f2f2; padding: 2px 7px; border-radius: 2px; }
+
+        /* ====== IMAGES ====== */
+        .ig { display: grid; gap: 8px; margin-top: 10px; }
+        .ig.c1 { grid-template-columns: 1fr; max-width: 520px; }
+        .ig.c2 { grid-template-columns: 1fr 1fr; }
+        .ig.c3 { grid-template-columns: 1fr 1fr 1fr; }
+        .iw { border: 1px solid #ddd; border-radius: 3px; overflow: hidden; }
+        .iw img { width: 100%; height: auto; display: block; }
+        .ic { font-size: 7pt; color: #888; text-align: center; padding: 3px 5px; background: #fafafa; }
+
+        /* ====== SEPARATOR ====== */
+        hr.sep { border: none; border-top: 1px solid #e0e0e0; margin: 28px 0 24px; }
+
+        /* ====== FOOTER ====== */
+        .foot { margin-top: 28px; padding-top: 8px; border-top: 1px solid #ddd; text-align: center; font-size: 7.5pt; color: #bbb; }
+    </style>
+</head>
+<body>
+
+<div class="print-bar">
+    <span>Para guardar como PDF: <b>Ctrl + P</b> → Destino: <b>Guardar como PDF</b> → Activar <b>gráficos en segundo plano</b></span>
+    <button onclick="window.print()">Guardar como PDF</button>
+</div>
+
+<div class="page">
+
+    <!-- ====== PORTADA ====== -->
+    <header class="cover">
+        <div class="cover-row">
+            <div>
+                <h1>Juan Camilo Soracá Rivas</h1>
+                <div class="cover-sub">Ingeniero en Mecatrónica · Universidad de Pamplona</div>
+            </div>
+            <div class="cover-contact">
+                soraca032019@gmail.com<br>
+                +57 304 256 7299<br>
+                <a href="https://linkedin.com/in/juan-soraca">linkedin.com/in/juan-soraca</a><br>
+                <a href="https://github.com/juansor03">github.com/juansor03</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====== INTRO ====== -->
+    <p class="intro">
+        Este documento recoge los proyectos más representativos de mi trabajo como ingeniero mecatrónico. Incluye desarrollos que he realizado como consultor externo para la empresa TecniMetal —donde diseño maquinaria industrial y herramientas de gestión de producción—, prototipos funcionales entregados a clientes, y asesorías técnicas en ingeniería de control que he dado a otros estudiantes de forma independiente.
+    </p>
+
+    <!-- ====================================================================== -->
+    <div class="st">Proyectos</div>
+    <!-- ====================================================================== -->
+
+    <!-- ====== P1: DASHBOARD ====== -->
+    <div class="pj">
+        <div class="pj-top">
+            <span class="pj-name">Dashboard de Producción — TecniMetal</span>
+            <span class="pj-label">Desarrollo Web</span>
+        </div>
+        <div class="pj-context">Consultoría externa para TecniMetal · En uso actualmente</div>
+
+        <p>TecniMetal fabrica maquinaria industrial por pedido: hornos de convección, cortadores de masa, laminadoras. Antes de este proyecto, todo el seguimiento de la producción se hacía de memoria — no había registro digital de qué orden iba en qué etapa, ni quién estaba haciendo qué.</p>
+
+        <p>Diseñé y desarrollé desde cero una aplicación web que les permite registrar cada orden de producción, asignarla a los operarios, y ver en tiempo real el avance de la manufactura. Lo pensé para que el dueño de la empresa pudiera abrir el navegador desde cualquier parte y saber exactamente cómo va la planta.</p>
+
+        <div class="pj-what">Lo que hice</div>
+        <ul>
+            <li>Desarrollo completo del front-end y la lógica de negocio en JavaScript vanilla.</li>
+            <li>Base de datos en la nube con Firestore; despliegue automático en Firebase Hosting.</li>
+            <li>Panel con gestión de clientes, operarios, órdenes activas y alertas de atraso.</li>
+        </ul>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML / CSS</span><span class="tag">Firebase</span><span class="tag">Firestore</span></div>
+
+        <div class="ig c1">
+            <div class="iw"><img src="assets/Captura de pantalla 2026-07-16 164306.png" alt="Dashboard"><div class="ic">Panel de producción con órdenes activas y carga de trabajo por operario</div></div>
+        </div>
+    </div>
+
+    <hr class="sep">
+
+    <!-- ====== P2: HORNO ====== -->
+    <div class="pj">
+        <div class="pj-top">
+            <span class="pj-name">Horno Industrial de Convección con Sistema Rotativo</span>
+            <span class="pj-label">Mecatrónica</span>
+        </div>
+        <div class="pj-context">Trabajo en equipo para TecniMetal · Entregado a cliente</div>
+
+        <p>Este fue un trabajo en equipo dentro de TecniMetal. La estructura del horno (acero inoxidable, soldadura, aislamiento) la hicieron otros compañeros. Mi responsabilidad fue todo el sistema eléctrico y de control: desde el diseño del tablero de potencia hasta la regulación de temperatura.</p>
+
+        <p>El tablero incluye contactores trifásicos, relés térmicos de sobrecarga (CHNT NR2-25), breakers de protección, un controlador de temperatura Autonics ATE8 con lazo PID, y un variador de frecuencia VCP VRP.08 para el motor del sistema rotativo interno.</p>
+
+        <div class="pj-what">Mi aporte específico</div>
+        <ul>
+            <li>Diseño y armado completo del tablero eléctrico de control y potencia.</li>
+            <li>Selección de componentes: contactores, protecciones, controlador PID, variador.</li>
+            <li>Cableado estructurado con canaletas industriales y puesta en marcha del equipo.</li>
+        </ul>
+        <div class="tags"><span class="tag">Tableros Eléctricos</span><span class="tag">Autonics ATE8</span><span class="tag">Control PID</span><span class="tag">Variador VCP</span><span class="tag">SolidWorks</span></div>
+
+        <div class="ig c3">
+            <div class="iw"><img src="assets/WhatsApp Image 2026-07-16 at 4.37.45 PM.jpeg" alt="Horno"><div class="ic">Horno terminado con panel frontal</div></div>
+            <div class="iw"><img src="assets/WhatsApp Image 2026-07-16 at 4.36.43 PM.jpeg" alt="Tablero"><div class="ic">Tablero eléctrico armado por mí</div></div>
+            <div class="iw"><img src="assets/WhatsApp Image 2026-07-16 at 4.36.26 PM.jpeg" alt="CAD"><div class="ic">Modelo CAD del bastidor interno</div></div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ====== P3: ÓSMOSIS ====== -->
+    <div class="pj">
+        <div class="pj-top">
+            <span class="pj-name">Automatización de Planta de Ósmosis Inversa</span>
+            <span class="pj-label">Automatización</span>
+        </div>
+        <div class="pj-context">Prototipo funcional entregado a cliente particular</div>
+
+        <p>Un cliente particular necesitaba automatizar una planta de purificación de agua por ósmosis inversa. Me encargué de desarrollar todo el firmware de control: la lógica de operación, la lectura de sensores, el manejo de actuadores y la interfaz de usuario.</p>
+
+        <p>El sistema corre sobre una tarjeta industrial DNMEB50 (compatible Arduino Mega 2560) y se opera mediante una pantalla táctil Nextion a color. El operador puede iniciar ciclos de producción, monitorear presiones y caudales en tiempo real, ejecutar ciclos de desinfección y ver diagnósticos del equipo — todo desde la pantalla, sin necesidad de computador.</p>
+
+        <div class="pj-what">Lo que hice</div>
+        <ul>
+            <li>Firmware completo en C++ (467 líneas): lectura de 3 sensores de presión (lazos 4-20 mA), sensor TDS, 2 caudalímetros.</li>
+            <li>Programación de la interfaz táctil Nextion con páginas de operación, desinfección, diagnóstico y login.</li>
+            <li>Lógica de control de electroválvulas, bombas de alta presión y ciclos temporizados de limpieza.</li>
+            <li>Comunicación Modbus RS485 para integración con instrumentación industrial.</li>
+        </ul>
+        <div class="tags"><span class="tag">C++ / Arduino</span><span class="tag">Nextion HMI</span><span class="tag">Lazos 4-20 mA</span><span class="tag">Sensor TDS</span><span class="tag">Modbus RS485</span></div>
+    </div>
+
+    <hr class="sep">
+
+    <!-- ====== P4: ITALIANA + CORTADOR ====== -->
+    <div class="pj">
+        <div class="pj-top">
+            <span class="pj-name">Maquinaria Industrial: Laminadora "Italiana" y Cortador de Masa</span>
+            <span class="pj-label">Diseño & Manufactura</span>
+        </div>
+        <div class="pj-context">Máquinas fabricadas por TecniMetal · En operación con clientes</div>
+
+        <p>TecniMetal fabrica y vende maquinaria para la industria alimentaria. Estos son dos de los equipos en los que participé con el diseño mecánico y los planos de fabricación:</p>
+
+        <p>La <strong>Italiana</strong> es una laminadora industrial con transmisión por cadena de rodillos ANSI 40. Hice el modelado 3D completo, la lista de materiales con 20 componentes (rodamientos, sprockets, tensores, basculantes) y los planos de ensamble bajo normas ISO/ANSI para que el taller pudiera fabricarla.</p>
+
+        <p>El <strong>Cortador de Masa Fácil</strong> es un equipo automatizado que corta porciones de masa de forma rápida y uniforme. Lo diseñé con el objetivo de que fuera sencillo de operar en una línea de producción de panadería.</p>
+
+        <div class="pj-what">Lo que hice</div>
+        <ul>
+            <li>Modelado 3D completo de ambas máquinas en SolidWorks con subensambles funcionales.</li>
+            <li>Generación de planos técnicos de fabricación con BOM, tolerancias y vistas de ensamble.</li>
+            <li>Selección de componentes comerciales (McMaster-Carr) para facilitar el mantenimiento.</li>
+        </ul>
+        <div class="tags"><span class="tag">SolidWorks</span><span class="tag">Planos ISO/ANSI</span><span class="tag">BOM</span><span class="tag">Cadena ANSI 40</span><span class="tag">Industria Alimentaria</span></div>
+
+        <div class="ig c2">
+            <div class="iw"><img src="assets/Captura de pantalla 2026-07-16 164033.png" alt="Plano Italiana"><div class="ic">Plano de ensamble de la laminadora con BOM</div></div>
+            <div class="iw"><img src="assets/WhatsApp Image 2026-07-16 at 4.32.54 PM.jpeg" alt="Cortador de masa"><div class="ic">Cortador de masa fácil automatizado</div></div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ====== P5: BASE360 ====== -->
+    <div class="pj">
+        <div class="pj-top">
+            <span class="pj-name">BASE360 — Generador Paramétrico para Fusion 360</span>
+            <span class="pj-label">Automatización CAD</span>
+        </div>
+        <div class="pj-context">Herramienta interna desarrollada para TecniMetal</div>
+
+        <p>TecniMetal necesitaba una base giratoria motorizada para exhibir productos en ferias o puntos de venta. En lugar de modelar cada variante a mano, escribí un script en Python que genera automáticamente el ensamble completo dentro de Fusion 360 — con todas las dimensiones parametrizadas.</p>
+
+        <p>El script crea una corona dentada de 120 dientes con perfil involuta, un piñón de arrastre de 12 dientes, el carro giratorio, la plataforma fija de 40 cm y el soporte para servomotor SG90. Cambiar el tamaño de la base o la relación de transmisión es cuestión de modificar una variable y volver a correr el script.</p>
+
+        <div class="pj-what">Lo que hice</div>
+        <ul>
+            <li>Script de 525 líneas en Python usando la API de Fusion 360 para generar geometría paramétrica.</li>
+            <li>Cálculo automático de perfiles de dientes involuta para engranajes funcionales.</li>
+            <li>El script limpia diseños anteriores y regenera el modelo completo en segundos.</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">API Fusion 360</span><span class="tag">Geometría Paramétrica</span><span class="tag">Engranajes Involuta</span></div>
+    </div>
+
+    <hr class="sep">
+
+    <!-- ====== P6: ASESORÍAS ====== -->
+    <div class="pj">
+        <div class="pj-top">
+            <span class="pj-name">Asesorías en Ingeniería de Control</span>
+            <span class="pj-label">Consultoría Académica</span>
+        </div>
+        <div class="pj-context">Trabajo independiente como tutor · Múltiples estudiantes</div>
+
+        <p>De forma independiente, he dado asesorías técnicas a otros estudiantes de ingeniería en sus proyectos de control automático. Mi trabajo consiste en ayudarles con el modelado matemático de sus plantas, la simulación en MATLAB/Simulink, el diseño de controladores y, cuando aplica, la implementación en hardware.</p>
+
+        <p>Estos son algunos de los proyectos en los que he participado como asesor:</p>
+
+        <ul>
+            <li><strong>Ventilador Mecánico:</strong> Modelado de resistencia-capacitancia de un sistema pulmonar. Diseño de controlador PID discreto con discretización Tustin.</li>
+            <li><strong>Ball and Beam:</strong> Control de posición de una bola sobre una viga inclinable. Incluye retroalimentación de ángulo y fue validado en una plataforma física de laboratorio (USB, 2025).</li>
+            <li><strong>Péndulo Invertido y Péndulo Furuta:</strong> Linealización de modelos no lineales mediante series de Taylor. Sintonización de controladores PID para estabilización vertical.</li>
+            <li><strong>Planta de Nivel de Agua:</strong> Sistema de control con Arduino, celda de carga HX711, servo-válvula y medición de presión hidrostática.</li>
+        </ul>
+        <div class="tags"><span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">PID</span><span class="tag">Discretización Tustin</span><span class="tag">Arduino</span></div>
+    </div>
+
+    <!-- ====== PIE ====== -->
+    <div class="foot">
+        Juan Camilo Soracá Rivas · soraca032019@gmail.com · +57 304 256 7299 · Julio 2026
+    </div>
+
+</div>
+</body>
+</html>
